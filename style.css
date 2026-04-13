@@ -18,7 +18,7 @@
   --accent3:   #6ee7b7;
   --accent4:   #059669;
   --text:      #e2ede9;
-  --muted:     #7aada0;
+  --muted:     #adb9b6;
   --muted2:    #4d8075;
   --white:     #ffffff;
   --gold:      #fbbf24;
@@ -162,7 +162,7 @@ a { text-decoration: none; }
       align-items: center;
       justify-content: space-between;
       padding: 1rem 5%;
-      background: rgba(12, 59, 42, 0.85);
+      background: rgba(49, 87, 73, 0.85);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
