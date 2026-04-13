@@ -6,15 +6,15 @@
 
 /* ── CSS VARIABLES ──────────────────────────────────────────── */
 :root {
-  --bg:        #050d0a;
-  --bg2:       #071109;
-  --bg3:       #0a1a13;
+  --bg:        #101111;
+  --bg2:       #061d0a;
+  --bg3:       #1d2823;
   --card:      #0d1f19;
   --card2:     #102518;
-  --border:    rgba(52, 211, 153, 0.12);
-  --border2:   rgba(52, 211, 153, 0.22);
+  --border:    rgba(188, 206, 19, 0.587);
+  --border2:   rgba(52, 134, 211, 0.527);
   --accent:    #34d399;
-  --accent2:   #10b981;
+  --accent2:   #000000;
   --accent3:   #6ee7b7;
   --accent4:   #059669;
   --text:      #e2ede9;
@@ -22,8 +22,8 @@
   --muted2:    #4d8075;
   --white:     #ffffff;
   --gold:      #fbbf24;
-  --shadow:    0 24px 60px rgba(0, 0, 0, 0.5);
-  --shadow-sm: 0 8px 30px rgba(0, 0, 0, 0.3);
+  --shadow:    0 24px 60px rgba(107, 74, 74, 0.5);
+  --shadow-sm: 0 8px 30px rgba(68, 24, 24, 0.3);
   --radius:    16px;
   --radius-lg: 24px;
 }
@@ -162,7 +162,7 @@ a { text-decoration: none; }
       align-items: center;
       justify-content: space-between;
       padding: 1rem 5%;
-      background: rgba(5,13,10,0.85);
+      background: rgba(12, 59, 42, 0.85);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
@@ -253,8 +253,8 @@ a { text-decoration: none; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to bottom, rgba(5,13,10,0.6) 0%, rgba(5,13,10,0.1) 40%, rgba(5,13,10,0.85) 100%),
-    radial-gradient(ellipse 70% 60% at 50% 20%, rgba(52,211,153,0.06) 0%, transparent 70%);
+    linear-gradient(to bottom, rgba(23, 48, 39, 0.6) 0%, rgba(50, 86, 74, 0.1) 40%, rgba(5,13,10,0.85) 100%),
+    radial-gradient(ellipse 70% 60% at 50% 20%, rgba(189, 199, 196, 0.06) 0%, transparent 70%);
 }
 
 .hero-grid-lines {
@@ -316,10 +316,10 @@ a { text-decoration: none; }
 
 .hero-sub {
   max-width: 620px;
-  font-size: 1.12rem;
+  font-size: 2.1rem;
   color: var(--muted);
   font-weight: 300;
-  line-height: 1.8;
+  line-height: 1.3;
   margin-bottom: 2.5rem;
   animation: fadeUp 1s ease 0.2s both;
 }
@@ -827,7 +827,7 @@ a { text-decoration: none; }
    FOOTER
    ============================================================ */
 footer {
-  background: #030907;
+  background: #0d271e;
   border-top: 1px solid var(--border);
   padding: 3.5rem 5%;
 }
