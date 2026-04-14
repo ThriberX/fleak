@@ -18,8 +18,9 @@
   --accent3:   #6ee7b7;
   --accent4:   #059669;
   --text:      #e2ede9;
-  --muted:     #adb9b6;
+  --muted:     #c0cecc;
   --muted2:    #4d8075;
+  --muted3: #1d2120;
   --white:     #ffffff;
   --gold:      #fbbf24;
   --shadow:    0 24px 60px rgba(107, 74, 74, 0.5);
@@ -162,7 +163,7 @@ a { text-decoration: none; }
       align-items: center;
       justify-content: space-between;
       padding: 1rem 5%;
-      background: rgba(49, 87, 73, 0.85);
+      background: rgba(198, 248, 230, 0.85);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
@@ -179,7 +180,7 @@ a { text-decoration: none; }
     }
 
     .nav-links a {
-      color: var(--muted);
+      color: var(--muted3);
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 500;
