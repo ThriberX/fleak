@@ -169,7 +169,7 @@ a { text-decoration: none; }
     }
 
     .nav-logo img {
-      height: 52px;
+      height: 70px;
       width: auto;
     }
 
@@ -934,6 +934,7 @@ footer {
   .nav-links.open { display: flex; }
   .nav-links li { width: 100%; }
   .nav-links a {
+    color : var(--muted)
     display: block;
     padding: 0.7rem 0;
     border-bottom: 1px solid var(--border);
