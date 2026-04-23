@@ -6,16 +6,195 @@
   <meta name="description" content="Fleak Energy — Building India's Next Energy Infrastructure. Scalable solar, strategic storage, intelligent dispatch, and market-aware energy solutions." />
   <title>Fleak Energy — India's Next Energy Infrastructure</title>
 
-  <!-- Fonts -->
+  <!-- Vibrant Fonts: Fraunces (display) + Plus Jakarta Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Favicon placeholder -->
   <link rel="icon" type="image/png" href="images/logo.png" />
+
+  <style>
+    /* ── HERO IMAGE FIX: vibrant, bright, not dimmed ── */
+    .hero-img {
+      filter: brightness(0.62) saturate(1.3) !important;
+    }
+
+    /* Hero text is WHITE on image so it pops */
+    .hero-content h1 {
+      color: #ffffff !important;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.25);
+    }
+    .hero-content .hero-eyebrow {
+      background: rgba(255,255,255,0.15) !important;
+      border-color: rgba(255,255,255,0.35) !important;
+      color: #ffffff !important;
+    }
+    .hero-content .hero-eyebrow::before {
+      background: #ffffff !important;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,0.88) !important;
+      font-size: 1.1rem !important;
+    }
+    .hero-sub em {
+      color: #ffffff !important;
+    }
+    /* Overlay: only a LIGHT gradient at bottom so text is readable */
+    .hero-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.08) 0%,
+        rgba(0,0,0,0.05) 50%,
+        rgba(10,10,10,0.70) 100%
+      ) !important;
+    }
+    /* Remove the mesh gradient blob from hero since image is now visible */
+    .hero::before { display: none !important; }
+
+    /* Hero grid lines more visible on image */
+    .hero-grid-lines {
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px) !important;
+      opacity: 0.6;
+    }
+
+    /* Stats strip on hero: keep white card style */
+    .hero-stats {
+      margin-top: 4rem;
+    }
+
+    /* ── CONTACT SECTION: fix button layout ── */
+    .contact-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .contact-buttons .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1rem 2rem;
+      border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.28s;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .btn-call {
+      background: linear-gradient(135deg, #ff6b35, #ff8c42);
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(255,107,53,0.38);
+    }
+    .btn-call:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 36px rgba(255,107,53,0.52);
+    }
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25d366, #20bd5a);
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 36px rgba(37,211,102,0.50);
+    }
+    .btn-email {
+      background: linear-gradient(135deg, #0096c7, #00b4d8);
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(0,150,199,0.35);
+    }
+    .btn-email:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 36px rgba(0,150,199,0.50);
+    }
+
+    /* ── NAV SHADOW FIX ── */
+    nav.scrolled {
+      box-shadow: 0 4px 30px rgba(255,107,53,0.12), 0 1px 8px rgba(0,0,0,0.08);
+    }
+
+    /* ── ABOUT SECTION: fix text colour ── */
+    .about-section .section-title {
+      color: #1a1a2e;
+    }
+
+    /* ── SECTION TITLE colour fix for all light sections ── */
+    .opportunity-section .section-title,
+    .solutions-section .section-title,
+    .metrics-section .section-title,
+    .contact-box h2,
+    .why-section .section-title,
+    .transition-section .section-title {
+      color: #1a1a2e;
+    }
+
+    /* ── HERO STAT STRIP: show it ── */
+    .hero-stats-visible {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 0;
+      margin-top: 4.5rem;
+      animation: fadeUp 1s ease 0.5s both;
+      background: rgba(255,255,255,0.95);
+      border: 1.5px solid rgba(255,107,53,0.15);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+      backdrop-filter: blur(12px);
+    }
+    .hero-stats-visible .stat-block {
+      flex: 1;
+      text-align: center;
+      padding: 1.6rem 1.8rem;
+      border-right: 1.5px solid rgba(255,107,53,0.12);
+      position: relative;
+    }
+    .hero-stats-visible .stat-block:last-child { border-right: none; }
+    .hero-stats-visible .stat-block:nth-child(1)::before { content:''; position:absolute; top:0;left:0;right:0;height:3px; background:var(--coral); }
+    .hero-stats-visible .stat-block:nth-child(2)::before { content:''; position:absolute; top:0;left:0;right:0;height:3px; background:var(--amber); }
+    .hero-stats-visible .stat-block:nth-child(3)::before { content:''; position:absolute; top:0;left:0;right:0;height:3px; background:var(--mint); }
+    .hero-stats-visible .stat-block:nth-child(4)::before { content:''; position:absolute; top:0;left:0;right:0;height:3px; background:var(--sky); }
+    .hero-stats-visible .stat-val {
+      font-family: 'Fraunces', serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .hero-stats-visible .stat-block:nth-child(1) .stat-val { color: var(--coral); }
+    .hero-stats-visible .stat-block:nth-child(2) .stat-val { color: var(--amber); }
+    .hero-stats-visible .stat-block:nth-child(3) .stat-val { color: var(--mint); }
+    .hero-stats-visible .stat-block:nth-child(4) .stat-val { color: var(--sky); }
+    .hero-stats-visible .stat-label {
+      font-size: 0.7rem;
+      color: #5a5a7a;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .hero-stats-visible {
+        flex-direction: column;
+        width: 90%;
+        border-radius: 18px;
+      }
+      .hero-stats-visible .stat-block {
+        border-right: none;
+        border-bottom: 1.5px solid rgba(255,107,53,0.10);
+        padding: 1rem 1.5rem;
+      }
+      .hero-stats-visible .stat-block:last-child { border-bottom: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -24,14 +203,17 @@
      ============================================================ -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
-   <img src="logo.png">
-   </a>
+    <img src="/logo.png" alt="Fleak Energy" />
+  </a>
+
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#opportunity">Opportunity</a></li>
     <li><a href="#solutions">Solutions</a></li>
+    <li><a href="#why">Why Us</a></li>
     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
-   </ul>
+  </ul>
+
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -39,10 +221,9 @@
 
 
 <!-- ============================================================
-     HERO
+     HERO — image stays vibrant, text white on top
      ============================================================ -->
 <section class="hero" id="hero">
-  <!-- Background image layer -->
   <div class="hero-img" role="img" aria-label="Large-scale solar farm in India"></div>
   <div class="hero-overlay"></div>
   <div class="hero-grid-lines"></div>
@@ -63,29 +244,8 @@
 
     <div class="hero-btns">
       <a href="#solutions" class="btn-primary">Explore Solutions</a>
-      <a href="#contact" class="btn-outline">Partner With Us</a>
     </div>
   </div>
-
-  <!-- Stats strip 
-  <div class="hero-stats">
-    <div class="stat-block">
-      <div class="stat-val">500+</div>
-      <div class="stat-label">GW RE Target</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-val">2030</div>
-      <div class="stat-label">Policy Horizon</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-val">5×</div>
-      <div class="stat-label">Demand Growth Potential</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-val">₹24L Cr</div>
-      <div class="stat-label">Investment Opportunity</div>
-    </div>
-  </div>-->
 </section>
 
 
@@ -96,11 +256,10 @@
   <div class="section-inner">
     <div class="about-grid">
 
-      <!-- Image side -->
       <div class="about-img-wrap reveal">
         <img
-          src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=900&q=80&fit=crop"
-          alt="Solar farm aerial view — large scale photovoltaic infrastructure"
+          src="/img/SoalrBattery.png"
+          alt="Solar farm aerial view"
           loading="lazy"
         />
         <div class="about-img-badge">
@@ -109,35 +268,58 @@
         </div>
       </div>
 
-      <!-- Text side -->
       <div class="reveal">
         <span class="section-label">Who We Are</span>
         <h2 class="section-title">A Founder-Led<br />Energy Transition Platform</h2>
-        <p style="color: var(--muted); margin-bottom: 1.2rem; font-weight: 300; line-height: 1.8;">
-          Fleak Energy is focused on building future-ready renewable infrastructure for India's next energy cycle.
-          As power generation and consumption dynamics evolve, simplistic capacity additions are no longer sufficient.
-        </p>
-        <p style="color: var(--muted); margin-bottom: 1.8rem; font-weight: 300; line-height: 1.8;">
-          The grid is becoming more complex, demand patterns more dynamic, and reliability more critical.
-          Our focus is on creating an intelligent, integrated asset base — designed to meet the operational
-          and commercial realities of tomorrow's power markets.
-        </p>
-     <!---  <div style="margin-bottom: 1.5rem;">
-          <span class="tag">Solar + Storage</span>
-          <span class="tag">Intelligent Dispatch</span>
-          <span class="tag">Market-Aware</span>
-          <span class="tag">Round-the-Clock</span>
-          <span class="tag">C&amp;I Solutions</span>
-        </div>---> 
+        <p style="color:var(--muted);margin-bottom:1.2rem;font-weight:400;line-height:1.8;">
+   
+Kislay Jha founded Fleak Energy with the vision of building a next-generation renewable infrastructure platform for India.
 
-        <div class="about-quote-card">
-          <p>"Infrastructure must move beyond generation — towards integration, flexibility, and performance."</p>
-        </div>
+He previously worked in London as a corporate finance and M&A advisor in the energy transition space, with a focus on key European markets including the United Kingdom, Nordics, Germany, France, and Belgium.
+
+        </p>
+        <p style="color:var(--muted);margin-bottom:1.8rem;font-weight:400;line-height:1.8;">
+        
+Over a four-year period (2022–2025), he advised and closed over €1.5 billion of transactions across asset-level, portfolio, and HoldCo structures — working with leading investors and developers across solar PV, battery energy storage systems (BESS), and onshore wind.
+
+In January 2026, he moved back to India to establish Fleak Energy, bringing global transaction experience and a long-term perspective to India’s evolving energy markets.
+        </p>
+
+        <!-- ============================================================
+     GALLERY STRIP
+     ============================================================ -->
+<div class="gallery-strip">
+  <div class="section-inner">
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="/img/kgpLogo.jpg"
+          alt="Utility Solar" loading="lazy" />
       </div>
-
+      <div class="gallery-item">
+        <img src="/img/cambridge.png"
+          alt="Energy Storage" loading="lazy" />
+      </div>
+   
     </div>
   </div>
+</div>
+      </div>
+    </div>
+
+        <div class="about-quote-card">
+          <p>" Build infrastructure that delivers reliable and scalable clean power and
+                    Support India’s transition to a low-carbon and electrified economy"</p>
+        </div>
+
+        
+      
+
+    
+    
+  </div>
+  
 </section>
+
 
 
 <!-- ============================================================
@@ -157,86 +339,68 @@
     <div class="opp-grid">
 
       <div class="opp-card reveal">
-        <img
-          class="opp-card-img"
-          src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=700&q=75&fit=crop"
-          alt="Rising electricity demand — city infrastructure and power lines"
-          loading="lazy"
-        />
+        <img class="opp-card-img"
+          src="img/workTogether.png"
+          alt="Rising electricity demand" loading="lazy" />
         <div class="opp-card-body">
           <div class="opp-icon">⚡</div>
-          <h3>Rising Electricity Demand</h3>
-          <p>Rapid economic growth, EV adoption, industrial decarbonisation, data centres, and rising cooling demand drive sustained long-term electricity consumption.</p>
+          <h3>Community-Aligned Growth</h3>
+          <p>We develop renewable energy assets with local communities, structuring long-term benefit mechanisms that strengthen trust, protect operations, and create shared value across the asset life.</p>
         </div>
       </div>
 
       <div class="opp-card reveal">
-        <img
-          class="opp-card-img"
-          src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=700&q=75&fit=crop"
-          alt="Solar panels — renewables as the primary growth driver"
-          loading="lazy"
-        />
+        <img class="opp-card-img"
+          src="/img/something.png"
+          alt="Solar panels" loading="lazy" />
         <div class="opp-card-body">
           <div class="opp-icon">☀️</div>
-          <h3>Renewables as Primary Driver</h3>
-          <p>Strong policy push, competitive solar costs, and large-scale national capacity targets ensure solar will continue to form the backbone of India's energy transition.</p>
+          <h3>Capital with Intent </h3>
+          <p>Every rupee deployed has a defined purpose, clear ownership, and a measurable contribution to returns, resilience, or execution quality.</p>
         </div>
       </div>
 
       <div class="opp-card reveal">
-        <img
-          class="opp-card-img"
-          src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=700&q=75&fit=crop"
-          alt="Power grid transmission — system complexity and balancing"
-          loading="lazy"
-        />
+        <img class="opp-card-img"
+          src="/img/teambonded.png"
+          alt="Power grid" loading="lazy" />
         <div class="opp-card-body">
           <div class="opp-icon">🔄</div>
-          <h3>Increasing System Complexity</h3>
-          <p>Intermittent generation profiles, supply-demand mismatches, real-time balancing requirements, and market-based pricing create a need for more flexible infrastructure.</p>
+          <h3>Decisive Execution</h3>
+          <p>We move from insight to action without delay, making timely decisions once material risks are understood and accountability is clear.</p>
         </div>
       </div>
 
       <div class="opp-card reveal">
-        <img
-          class="opp-card-img"
+        <img class="opp-card-img"
           src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=75&fit=crop"
-          alt="Battery energy storage system BESS — grid flexibility"
-          loading="lazy"
-        />
+          alt="Battery storage BESS" loading="lazy" />
         <div class="opp-card-body">
           <div class="opp-icon">🔋</div>
-          <h3>Storage &amp; Flexibility (BESS)</h3>
-          <p>Battery Energy Storage Systems are becoming critical for peak delivery, renewable firming, grid balancing, and participation in Real-Time Electricity (RTE) markets.</p>
+          <h3>Transparency by Default </h3>
+          <p> We communicate openly and early, sharing facts, risks, and performance, especially when outcomes differ from expectations</p>
         </div>
       </div>
 
       <div class="opp-card reveal">
-        <img
-          class="opp-card-img"
-          src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=700&q=75&fit=crop"
-          alt="Commercial industrial building — C&I energy needs"
-          loading="lazy"
-        />
+        <img class="opp-card-img"
+          src="/img/patnership.png"
+          alt="C&I industrial building" loading="lazy" />
         <div class="opp-card-body">
           <div class="opp-icon">🏭</div>
-          <h3>Evolving C&amp;I Needs</h3>
-          <p>Commercial &amp; Industrial consumers demand green, traceable, round-the-clock energy — intermittent solar alone doesn't address the need for reliable, demand-aligned clean power.</p>
+          <h3>Aligned Partnerships </h3>
+          <p>We structure partnerships with aligned incentives and clear accountability, reducing execution risk and ensuring consistent performance across the value chain</p>
         </div>
       </div>
 
       <div class="opp-card reveal">
-        <img
-          class="opp-card-img"
+        <img class="opp-card-img"
           src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=700&q=75&fit=crop"
-          alt="India market — energy market in transition"
-          loading="lazy"
-        />
+          alt="India market in transition" loading="lazy" />
         <div class="opp-card-body">
           <div class="opp-icon">📈</div>
-          <h3>A Market in Transition</h3>
-          <p>India's energy ecosystem is shifting from capacity to capability, generation to delivery, and cost to reliability + optimisation — creating a significant platform opportunity.</p>
+          <h3>Sustainable Performance Culture</h3>
+          <p> We value intensity and ownership in work, not hours spent, fostering mutual respect, clear boundaries, and treating people as long-term partners to sustain high performance without burnout.</p>
         </div>
       </div>
 
@@ -251,10 +415,10 @@
 <section class="transition-section">
   <div class="section-inner reveal">
     <span class="section-label">The Shift Underway</span>
-    <h2 class="section-title" style="max-width: 620px; margin: 0 auto 0.5rem;">
+    <h2 class="section-title" style="max-width:620px;margin:0 auto 0.5rem;">
       The opportunity is no longer just to generate power.
     </h2>
-    <p style="color: var(--muted); max-width: 480px; margin: 0 auto; font-weight: 300;">
+    <p style="color:var(--muted);max-width:480px;margin:0 auto;font-weight:400;">
       It is to deliver it — reliably, intelligently, and at scale.
     </p>
 
@@ -294,110 +458,121 @@
 
     <div class="solutions-grid">
 
-      <!-- Card 1 — Wide (spans 2 cols) -->
-      <div class="sol-card wide reveal">
-        <div class="sol-card-img-wrap">
-          <img
-            class="sol-card-img"
-            src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80&fit=crop"
-            alt="Utility-scale solar farm — large photovoltaic infrastructure"
-            loading="lazy"
-          />
-          <div class="sol-card-num">01</div>
-        </div>
-        <div class="sol-card-body">
-          <h3>Utility-Scale Solar</h3>
-          <ul>
-            <li>Large-scale solar infrastructure built for grid integration</li>
-            <li>Long-term performance and reliability at grid scale</li>
-            <li>Supporting national renewable capacity growth targets</li>
-            <li>Designed for optimal GHI yield and plant availability</li>
-          </ul>
-        </div>
-      </div>
+   
 
       <!-- Card 2 -->
       <div class="sol-card reveal">
         <div class="sol-card-img-wrap">
-          <img
-            class="sol-card-img"
+          <img class="sol-card-img"
             src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&q=80&fit=crop"
-            alt="Round the clock clean energy — storage and dispatch"
-            loading="lazy"
-          />
+            alt="Round-the-clock power" loading="lazy" />
           <div class="sol-card-num">02</div>
         </div>
         <div class="sol-card-body">
-          <h3>Round-the-Clock Power</h3>
+          <h3> Decarbonisation of Industry</h3>
           <ul>
-            <li>Demand-aligned, reliable clean energy supply</li>
-            <li>Enabled through solar, storage &amp; market integration</li>
-            <li>Designed for consistent 24/7 delivery</li>
+            <li>Power Procurement</li>
+            <li>Third-party</li>
+            <li>Captive / Group Captive</li>
           </ul>
+            
+             <h3>Energy Solutions</h3>
+            <ul>
+            <li>Solar PPA</li>
+            <li>Wind PPA</li>
+            <li>Hybrid PPA</li>
+            <li>RTC Power(with BESS)</li>
+            <li>Demand-matched supply</li>
+          </ul>
+
+             <ul>
+            <h3>Values</h3>
+            <li>Reliable clean Power</li>
+            <li>Cost optimisation</li>
+            <li>Reduced volatility</li>
+          </ul>
+
         </div>
       </div>
 
       <!-- Card 3 -->
       <div class="sol-card reveal">
         <div class="sol-card-img-wrap">
-          <img
-            class="sol-card-img"
+          <img class="sol-card-img"
             src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&q=80&fit=crop"
-            alt="Rooftop solar on commercial building — distributed solar"
-            loading="lazy"
-          />
+            alt="Distributed rooftop solar" loading="lazy" />
           <div class="sol-card-num">03</div>
         </div>
         <div class="sol-card-body">
-          <h3>Distributed Solar</h3>
+            <h3>Decarbonisation of Agriculture</h3>
           <ul>
-            <li>Decentralised solar closer to consumption</li>
-            <li>Improved efficiency and reduced transmission losses</li>
-            <li>Scalable across regions and industries</li>
+            <li>Solar close to consumption</li>
+            <li>PM KUSUM aligned projects</li>
+            <li>Rural / Feeder-level supply</li>
+           </ul>
+
+           <h3>Focus</h3>  
+           <ul>
+           <li>Day-time </li>
+            <li>PM KUSUM aligned projects</li>
+            <li>Lower subsidy burden</li>
           </ul>
+
+             <ul>
+            <h3>Values</h3>
+            <li>Reliable clean Power</li>
+            <li>Cost optimisation</li>
+            <li>Reduced volatility</li>
+          </ul>
+
         </div>
       </div>
 
       <!-- Card 4 -->
-      <div class="sol-card reveal">
-        <div class="sol-card-img-wrap">
-          <img
-            class="sol-card-img"
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop"
-            alt="Battery energy storage system — BESS behind the meter"
-            loading="lazy"
-          />
-          <div class="sol-card-num">04</div>
-        </div>
-        <div class="sol-card-body">
-          <h3>Behind-the-Meter Solutions</h3>
-          <ul>
-            <li>On-site solar and storage deployment</li>
-            <li>Reduced dependence on grid supply</li>
-            <li>Enhanced reliability and energy cost control</li>
-          </ul>
-        </div>
-      </div>
+    <div class="sol-card reveal">
+  <div class="sol-card-img-wrap">
+    <img class="sol-card-img"
+      src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop"
+      alt="Utility-Scale Renewables" loading="lazy" />
+    <div class="sol-card-num">04</div>
+  </div>
+  <div class="sol-card-body">
+    <h3>Decarbonisation of the Grid</h3>
+    <ul>
+      <li>Solar parks</li>
+      <li>Wind projects</li>
+      <li>Hybrid generation assets</li>
+    </ul>
+    <h4>Value</h4>
+    <ul>
+      <li>Large-scale clean energy supply</li>
+      <li>Grid integration</li>
+      <li>Long-term infrastructure performance</li>
+    </ul>
+  </div>
+</div>
 
       <!-- Card 5 — Wide -->
       <div class="sol-card wide reveal">
         <div class="sol-card-img-wrap">
-          <img
-            class="sol-card-img"
+          <img class="sol-card-img"
             src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80&fit=crop"
-            alt="Open access power — C&I direct renewable procurement"
-            loading="lazy"
-          />
+            alt="Open Access C&I" loading="lazy" />
           <div class="sol-card-num">05</div>
         </div>
         <div class="sol-card-body">
-          <h3>Open Access for C&amp;I</h3>
+          <h3>Grid Flexibility and Reliability</h3>
           <ul>
-            <li>Direct renewable procurement for Commercial &amp; Industrial consumers</li>
-            <li>Flexible and scalable power structures tailored to load profiles</li>
-            <li>Cost-efficient and traceable green energy sourcing</li>
-            <li>Hedges against real-time market price volatility</li>
+            <li>Standalone storage assets</li>
+            <li>Co-located with renewable</li>
+            <li>Flexible deoployment across use case</li>
           </ul>
+              <h4>Value</h4>
+    <ul>
+      <li>Peak power  delivery</li>
+      <li>Frequency and grid support</li>
+      <li>Renewable firming and Stability</li>
+    </ul>
         </div>
       </div>
 
@@ -406,47 +581,6 @@
 </section>
 
 
-<!-- ============================================================
-     GALLERY STRIP
-     ============================================================ -->
-<div class="gallery-strip">
-  <div class="section-inner">
-    <div class="gallery-grid reveal">
-      <div class="gallery-item">
-        <img
-          src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=75&fit=crop"
-          alt="Solar panels aerial — photovoltaic farm"
-          loading="lazy"
-        />
-        <span class="gallery-item-label">Utility Solar</span>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="https://assets.infineon.com/is/image/infineon/energy-storage-systems-ecosystem.png:asset-880-2x1?qlt=55,0&resMode=sharp2&op_usm=1.75,0.3,2,0"
-          alt="Battery energy storage — BESS containers"
-          loading="lazy"
-        />
-        <span class="gallery-item-label">Energy Storage</span>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&q=75&fit=crop"
-          alt="Rooftop solar — commercial installation"
-          loading="lazy"
-        />
-        <span class="gallery-item-label">Distributed Solar</span>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=75&fit=crop"
-          alt="Power grid infrastructure — transmission and distribution"
-          loading="lazy"
-        />
-        <span class="gallery-item-label">Grid Integration</span>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <!-- ============================================================
@@ -456,10 +590,9 @@
   <div class="section-inner">
     <div class="why-grid">
 
-      <!-- Text -->
       <div class="reveal">
         <span class="section-label">Why Fleak Energy</span>
-        <h2 class="section-title" style="margin-bottom: 2.5rem;">Built for India's<br />Energy Future</h2>
+        <h2 class="section-title" style="margin-bottom:2.5rem;">Built for India's<br />Energy Future</h2>
 
         <div class="why-items">
           <div class="why-item">
@@ -493,16 +626,12 @@
         </div>
       </div>
 
-      <!-- Image -->
       <div class="why-img-wrap reveal">
-        <img
-          src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=900&q=80&fit=crop"
-          alt="Clean energy landscape — wind and solar power generation"
-          loading="lazy"
-        />
+        <img src="img/solarPump.png"
+          alt="Clean energy landscape" loading="lazy" />
         <div class="why-img-overlay"></div>
         <p class="why-img-caption">
-          "Delivering clean power reliably, intelligently, and at scale — across India's next energy cycle."
+          " Own and operate high-quality clean energy assets with strong performance and Deliver reliable, cost-effective power enabling decarbonization across sectors."
         </p>
       </div>
 
@@ -520,9 +649,9 @@
       <div class="metrics-header">
         <div>
           <span class="section-label">India Energy Metrics</span>
-          <h2 class="section-title" style="margin-bottom: 0;">The Scale of Opportunity</h2>
+          <h2 class="section-title" style="margin-bottom:0;">The Scale of Opportunity</h2>
         </div>
-        <p style="color: var(--muted); font-size: 0.88rem; max-width: 260px; text-align: right; font-weight: 300;">
+        <p style="color:var(--muted);font-size:0.88rem;max-width:260px;text-align:right;font-weight:400;">
           Structural data underpinning Fleak Energy's investment thesis
         </p>
       </div>
@@ -530,44 +659,32 @@
       <div class="metrics-grid">
         <div class="metric-row">
           <span class="metric-name">Demand Growth Potential</span>
-          <div class="metric-bar-wrap">
-            <div class="metric-bar" style="--w: 0.88" data-width="0.88"></div>
-          </div>
+          <div class="metric-bar-wrap"><div class="metric-bar" data-width="0.88"></div></div>
           <span class="metric-val">~5×</span>
         </div>
         <div class="metric-row">
           <span class="metric-name">RE Target by 2030</span>
-          <div class="metric-bar-wrap">
-            <div class="metric-bar" style="--w: 0.80" data-width="0.80"></div>
-          </div>
+          <div class="metric-bar-wrap"><div class="metric-bar" data-width="0.80"></div></div>
           <span class="metric-val">500 GW</span>
         </div>
         <div class="metric-row">
           <span class="metric-name">BESS Market Growth</span>
-          <div class="metric-bar-wrap">
-            <div class="metric-bar" style="--w: 0.92" data-width="0.92"></div>
-          </div>
+          <div class="metric-bar-wrap"><div class="metric-bar" data-width="0.92"></div></div>
           <span class="metric-val">Rapid</span>
         </div>
         <div class="metric-row">
           <span class="metric-name">C&amp;I Green Power Demand</span>
-          <div class="metric-bar-wrap">
-            <div class="metric-bar" style="--w: 0.75" data-width="0.75"></div>
-          </div>
+          <div class="metric-bar-wrap"><div class="metric-bar" data-width="0.75"></div></div>
           <span class="metric-val">High</span>
         </div>
         <div class="metric-row">
           <span class="metric-name">Solar Cost Competitiveness</span>
-          <div class="metric-bar-wrap">
-            <div class="metric-bar" style="--w: 0.96" data-width="0.96"></div>
-          </div>
+          <div class="metric-bar-wrap"><div class="metric-bar" data-width="0.96"></div></div>
           <span class="metric-val">★★★★★</span>
         </div>
         <div class="metric-row">
           <span class="metric-name">Open Access Headroom</span>
-          <div class="metric-bar-wrap">
-            <div class="metric-bar" style="--w: 0.82" data-width="0.82"></div>
-          </div>
+          <div class="metric-bar-wrap"><div class="metric-bar" data-width="0.82"></div></div>
           <span class="metric-val">Large</span>
         </div>
       </div>
@@ -577,7 +694,7 @@
 
 
 <!-- ============================================================
-     CONTACT
+     CONTACT — clean button layout
      ============================================================ -->
 <section class="contact-section" id="contact">
   <div class="section-inner">
@@ -586,11 +703,17 @@
       <h2>Let's Build India's<br />Energy Future Together</h2>
       <p>Whether you're an investor, C&amp;I consumer, partner, or developer — we'd love to connect.</p>
 
-<div class="solutions-grid">
-    <a href="tel:1234567890" class="btn-primary ">📞 Call Us</a>
-    <a href="https://wa.me/1234567890" class="btn-primary " target="_blank">💬 WhatsApp</a>
-    <a href="mailto:your@email.com" class="btn-primary ">✉️ Email Us</a>
-    </div>
+      <div class="contact-buttons">
+        <a href="tel:1234567890" class="btn-contact btn-call">
+          <span>📞</span> Call Us
+        </a>
+        <a href="https://wa.me/1234567890" class="btn-contact btn-whatsapp" target="_blank" rel="noopener">
+          <span>💬</span> WhatsApp
+        </a>
+        <a href="mailto:hello@fleakenergy.com" class="btn-contact btn-email">
+          <span>✉️</span> Email Us
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -602,18 +725,12 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <img src="logo.png" alt="Fleak Energy" />
+      <img src="/logo.png" alt="Fleak Energy" />
     </div>
     <p class="footer-copy">
-      © 2025 Fleak Energy. All rights reserved.<br />
+      © 2026 Fleak Energy. All rights reserved.<br />
       Building India's Next Energy Infrastructure.
     </p>
-    <nav class="footer-links">
-      <a href="#about">About</a>
-      <a href="#opportunity">Opportunity</a>
-      <a href="#solutions">Solutions</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </div>
 </footer>
 
@@ -622,7 +739,7 @@
      JAVASCRIPT
      ============================================================ -->
 <script>
-  /* ── Hamburger ─────────────────────────────────────── */
+  /* ── Hamburger ── */
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
   hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
@@ -630,13 +747,13 @@
     a.addEventListener('click', () => navLinks.classList.remove('open'))
   );
 
-  /* ── Sticky nav shadow ─────────────────────────────── */
+  /* ── Nav scroll shadow ── */
+  const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    document.getElementById('navbar').style.boxShadow =
-      window.scrollY > 20 ? '0 4px 40px rgba(0,0,0,0.5)' : 'none';
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  /* ── Scroll Reveal ─────────────────────────────────── */
+  /* ── Scroll Reveal ── */
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -647,7 +764,7 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-  /* ── Metric Bars ───────────────────────────────────── */
+  /* ── Animated Metric Bars ── */
   const barObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -656,7 +773,7 @@
           setTimeout(() => {
             bar.style.width = (w * 100) + '%';
             bar.classList.add('animated');
-          }, i * 120);
+          }, i * 130);
         });
         barObserver.unobserve(entry.target);
       }
@@ -664,15 +781,13 @@
   }, { threshold: 0.3 });
   document.querySelectorAll('.metrics-inner').forEach(el => barObserver.observe(el));
 
-
-
-  /* ── Hero image subtle parallax ───────────────────── */
+  /* ── Hero parallax (subtle) ── */
   const heroBg = document.querySelector('.hero-img');
   if (heroBg) {
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
       if (y < window.innerHeight) {
-        heroBg.style.transform = `scale(1.04) translateY(${y * 0.25}px)`;
+        heroBg.style.transform = `scale(1) translateY(${y * 0.2}px)`;
       }
     }, { passive: true });
   }
